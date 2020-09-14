@@ -1,0 +1,27 @@
+<div class="col-md-6">
+  <h2 class="text-center">Editar Cliente</h2>
+  <form [formGroup]="personPhoneForm" novalidate class="form">
+
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input formControlName="phoneNumber" placeholder="Phone Number" name="phoneNumber" class="form-control"
+        id="phoneNumber">
+      <div class="alert  alert-danger"
+        *ngIf="personPhoneForm.get('phoneNumber').hasError('required') && personPhoneForm.get('phoneNumber').touched">
+        Phone Number required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNumberTypeID">Phone Number TypeID:</label>
+      <input formControlName="phoneNumberTypeID" placeholder="Phone Number TypeID" name="phoneNumberTypeID"
+        class="form-control" id="phoneNumberTypeID" number>
+      <div class="alert  alert-danger"
+        *ngIf="personPhoneForm.get('phoneNumberTypeID').hasError('required') && personPhoneForm.get('phoneNumberTypeID').touched">
+        Phone Number TypeID required
+      </div>
+    </div>
+
+    <button class="btn btn-success" [disabled]='personPhoneForm.invalid' (click)="onSubmit()">Salvar</button>
+  </form>
+</div>

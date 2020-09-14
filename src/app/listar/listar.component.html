@@ -1,0 +1,33 @@
+<div class="col-md-12">
+  <h2> Lista Telefones</h2>
+  <div>
+  </div>
+  <div>
+    <input placeholder="Filtrar" name="filtro" class="form-control" id="filtro" [(ngModel)]="query">
+  </div>
+  <br>
+  <div class="table-responsive table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Business EntityID</th>
+          <th>Phone Number</th>
+          <th>Phone Number TypeID</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let personPhone of personPhone?.data?.exampleObjects | search:'phoneNumber':query">
+          <td>{{personPhone.businessEntityID}}</td>
+          <td>{{personPhone.phoneNumber}}</td>
+          <td>{{personPhone.phoneNumberTypeID}}</td>
+          <td>
+            <button (click)="editar(personPhone.businessEntityID)" class="btn btn-info"> Editar</button>
+            <button (click)="excluir(personPhone)" style="margin-left: 20px;" class="btn btn-danger">
+              Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
